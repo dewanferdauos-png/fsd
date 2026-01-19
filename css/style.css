@@ -1,0 +1,2195 @@
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 🔴 এটা খুব জরুরি */
+}
+
+/* ====== নেভমেনু CSS শুরু ====== */
+/* Navbar Base */
+.navbar{
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: linear-gradient(
+        270deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size: 600% 600%;
+    animation: gradientMove 8s ease infinite;
+     position:relative;
+    z-index:9999;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Logo */
+.logo img{
+    height:50px;
+}
+
+/* Menu Desktop */
+.nav-menu ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+.nav-menu ul li a{
+    text-decoration:none;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.nav-menu ul li a:hover{
+    background:rgba(255,255,255,0.25);
+}
+
+/* Search */
+.search-box input{
+    padding:8px 14px;
+    border:none;
+    border-radius:20px;
+    outline:none;
+}
+
+/* Hamburger */
+.hamburger{
+    display:none;
+    font-size:26px;
+    color:white;
+    cursor:pointer;
+}
+
+/* =========================
+   📱 Mobile (0–575px)
+========================= */
+@media (max-width:575px){
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav-menu{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background: linear-gradient(180deg,#0f4c75,#1cb5e0);
+        display:none;
+    }
+
+    .nav-menu ul{
+        flex-direction:column;
+        align-items:center;
+        padding:20px 0;
+        gap:15px;
+    }
+
+    .search-box{
+        display:none;
+    }
+}
+
+/* =========================
+   📱 Tablet (576–991px)
+========================= */
+@media (min-width:576px) and (max-width:991px){
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav-menu{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background: linear-gradient(180deg,#0f4c75,#1cb5e0);
+        display:none;
+    }
+
+    .nav-menu ul{
+        flex-direction:column;
+        align-items:center;
+        padding:25px 0;
+        gap:18px;
+    }
+
+    .search-box{
+        display:none;
+    }
+}
+
+/* =========================
+   💻 Laptop/Desktop (992px+)
+========================= */
+@media (min-width:992px){
+    .nav-menu{
+        display:block !important;
+    }
+}
+
+/* ====== নেভমেনু CSS শেষ ====== */
+
+
+/* ========= PAGE LOADER CSS শুরু ========= */
+#pageLoader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff
+    );
+    background-size:400% 400%;
+    animation:loaderBg 6s ease infinite;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:100000;
+}
+
+@keyframes loaderBg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Loader Box */
+.loader-box{
+    text-align:center;
+    color:#ffffff;
+    animation:fadeIn 1s ease;
+}
+
+/* Spinner */
+.spinner{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:6px solid rgba(255,255,255,0.3);
+    border-top:6px solid #ffffff;
+    margin:0 auto 20px;
+    animation:spin 1.1s linear infinite;
+}
+.loder-img{
+    width: 100px;
+    height: auto;
+}
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* Text */
+.loader-box h3{
+    margin-bottom:6px;
+    letter-spacing:1px;
+}
+
+.loader-box p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* Fade out */
+#pageLoader.hide{
+    opacity:0;
+    visibility:hidden;
+    transition:0.6s ease;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .spinner{
+        width:55px;
+        height:55px;
+    }
+}
+/* ========= PAGE LOADER CSS শেষ ========= */
+
+
+/* ========= SCROLL PROGRESS BAR CSS শুরু ========= */
+#scrollProgressContainer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:rgba(0,0,0,0.08);
+    z-index:10000;
+}
+
+#scrollProgressBar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size:300% 300%;
+    animation:progressGlow 4s ease infinite;
+    transition:width 0.15s ease;
+}
+
+/* Gradient animation */
+@keyframes progressGlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Mobile slightly thinner */
+@media(max-width:768px){
+    #scrollProgressContainer{
+        height:4px;
+    }
+}
+
+/* ========= SCROLL PROGRESS BAR CSS শেষ ========= */
+
+
+
+/*---------------- HERO CAROUSEL CSS START ----------------*/
+/* Main Container */
+.hero-carousel{
+    width:100%;
+    height:100vh;
+    position:relative;
+    overflow:hidden;
+
+    background: linear-gradient(
+        270deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size:600% 600%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Slides */
+.slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    padding-left:8%;
+    opacity:0;
+    transition:0.8s ease;
+    z-index:1;
+}
+
+.slide.active{
+    opacity:1;
+    z-index:2;
+}
+
+/* Text */
+.hero-left{
+    width:60%;
+    color:white;
+    z-index:3;
+}
+
+.hero-left h1{
+    font-size:clamp(28px,5vw,54px);
+    margin-bottom:15px;
+}
+
+.hero-left p{
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+/* Button */
+.hero-btn{
+    display:inline-block;
+    padding:14px 36px;
+    background:white;
+    color:#0f4c75;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.hero-btn:hover{
+    background:#ffdd00;
+}
+
+/* Static Image */
+.hero-right{
+    position:absolute;
+    right:5%;
+    bottom:0;
+    width:30%;
+    z-index:2;
+}
+
+.hero-right img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Image Gradient Overlay */
+.image-gradient{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:45%;
+}
+
+/* Dots */
+.carousel-dots{
+    position:absolute;
+    bottom:25px;
+    width:100%;
+    text-align:center;
+    z-index:4;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    background:rgba(255,255,255,0.5);
+    border-radius:50%;
+    display:inline-block;
+    margin:0 6px;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:white;
+}
+
+/* =========================
+   📱 MOBILE FINAL FIX
+========================= */
+@media(max-width:768px){
+
+    .slide{
+        padding:0 20px;
+        justify-content:center;
+        text-align:center;
+    }
+
+    /* Image becomes background */
+    .hero-right{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        z-index:1;
+    }
+
+    .hero-right img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    /* Text overlay on image */
+    .hero-left{
+        width:100%;
+        z-index:3;
+    }
+
+    .image-gradient{
+        height:65%;
+    }
+}
+/*---------------- HERO CAROUSEL CSS END ----------------*/
+
+/* ===============================
+   FLOATING COUNTDOWN SECTION
+================================ */
+
+.floating-countdown-section{
+    position:relative;
+    padding:100px 20px;
+    overflow:hidden;
+}
+
+/* Animated Gradient Background */
+.floating-bg{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size:400% 400%;
+    animation:floatingGradient 12s ease infinite;
+    z-index:0;
+}
+
+@keyframes floatingGradient{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Glass Wrapper */
+.floating-countdown-wrapper{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+    padding:50px 40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+    text-align:center;
+    z-index:1;
+}
+
+/* Title */
+.floating-title{
+    font-size:clamp(24px,4vw,38px);
+    margin-bottom:40px;
+    color:#fff;
+}
+
+/* Countdown Layout */
+.floating-countdown{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+/* Each Time Box */
+.floating-time{
+    width:140px;
+    height:140px;
+    border-radius:26px;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(8px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    box-shadow:
+        inset 0 0 15px rgba(255,255,255,.25),
+        0 25px 50px rgba(0,0,0,.4);
+    animation:floatBox 4s ease-in-out infinite;
+}
+
+/* Different delay for natural motion */
+.floating-time:nth-child(2){animation-delay:0.6s;}
+.floating-time:nth-child(3){animation-delay:1.2s;}
+.floating-time:nth-child(4){animation-delay:1.8s;}
+
+/* Floating motion */
+@keyframes floatBox{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-14px);}
+    100%{transform:translateY(0);}
+}
+
+.floating-time span{
+    font-size:42px;
+    font-weight:800;
+    color:#ffdd00;
+}
+
+.floating-time small{
+    font-size:14px;
+    letter-spacing:1px;
+    color:#fff;
+    opacity:0.9;
+}
+
+/* 📱 Mobile */
+@media(max-width:768px){
+    .floating-countdown-wrapper{
+        padding:35px 20px;
+    }
+    .floating-time{
+        width:100px;
+        height:100px;
+    }
+    .floating-time span{
+        font-size:28px;
+    }
+}
+
+
+/* ===============================
+   IMPORTANT NOTICE MARQUEE
+================================ */
+
+.important-notice-bar{
+    width:100%;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(90deg,#0b0f3a,#1b1f6b);
+    min-height:48px;
+}
+
+/* Left red label */
+.notice-label-left{
+    background:#ff4d4d;
+    color:#fff;
+    font-weight:700;
+    padding:12px 18px;
+    white-space:nowrap;
+    font-size:14px;
+    flex-shrink:0;
+}
+
+/* Marquee container */
+.notice-marquee-area{
+    position:relative;
+    overflow:hidden;
+    flex:1;
+}
+
+/* Moving text */
+.notice-marquee-track{
+    display:inline-flex;
+    gap:60px;
+    white-space:nowrap;
+    padding-left:100%;
+    animation:noticeScroll 22s linear infinite;
+}
+
+.notice-marquee-track span{
+    color:#fff;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+}
+
+/* Animation right → left */
+@keyframes noticeScroll{
+    0%{
+        transform:translateX(0);
+    }
+    100%{
+        transform:translateX(-100%);
+    }
+}
+
+/* Pause on hover */
+.notice-marquee-area:hover .notice-marquee-track{
+    animation-play-state:paused;
+}
+
+/* 📱 Mobile friendly */
+@media(max-width:768px){
+    .important-notice-bar{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .notice-label-left{
+        width:100%;
+        text-align:center;
+        font-size:13px;
+        padding:10px;
+    }
+
+    .notice-marquee-track span{
+        font-size:13px;
+    }
+
+    .notice-marquee-track{
+        animation-duration:16s;
+    }
+}
+
+
+/* ========= ABOUT SECTION CSS শুরু ========= */
+.container{
+    width: 95%;
+    margin: 0 auto;
+}
+/* ========= ABOUT SECTION CSS শুরু ========= */
+
+.about-section{
+    padding:90px 0;
+    background:#ffffff;
+}
+
+.about-header{text-align:center;margin-bottom:50px;}
+.about-header h2{font-size:36px;color:#0f4c75;}
+.about-header p{color:#555;margin-top:8px;}
+
+.about-content{display:flex;gap:50px;}
+
+.about-left{width:55%;font-size:16px;line-height:1.8;color:#333;}
+.about-right{width:45%;display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+.about-mission,.about-for,.about-stay{
+    background:#f7fbff;padding:20px;border-radius:12px;margin:20px 0;
+}
+
+.about-btn{
+    display:inline-block;margin-top:20px;padding:12px 32px;
+    background:#0f4c75;color:#fff;border-radius:30px;text-decoration:none;
+}
+
+.about-card{
+    background:#f7fbff;padding:25px;border-radius:15px;
+}
+
+/* Stats */
+.about-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:20px;margin-top:60px;text-align:center;
+}
+
+.stat-box{background:#f7fbff;padding:25px;border-radius:15px;}
+.stat-box h3{color:#1cb5e0;font-size:28px;}
+
+/* ========= Animation Base ========= */
+.animate{opacity:0;transform:translateY(20px);}
+.animate.show{opacity:1;transform:none;transition:0.8s ease;}
+
+.fade-left{transform:translateX(-30px);}
+.fade-up{transform:translateY(30px);}
+.rotate-in{transform:rotate(-5deg) scale(0.95);}
+.zoom-in{transform:scale(0.8);}
+.b1{ color: #555;}
+.float.show{
+    animation:float 3s ease-in-out infinite;
+}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+}
+
+/* Delay */
+.delay-1{transition-delay:.6s}
+.delay-2{transition-delay:.8s}
+.delay-3{transition-delay:.10s}
+.delay-4{transition-delay:.12s}
+
+/* Mobile */
+@media(max-width:768px){
+    .about-content{flex-direction:column;}
+    .about-left,.about-right{width:100%;}
+    .about-right{grid-template-columns:1fr;}
+    .about-stats{grid-template-columns:1fr 1fr;}
+}
+/* ===============================
+   ABOUT BUTTON 4 (PREMIUM)
+================================ */
+
+.about-btn4{
+    position:relative;
+    display:inline-block;
+    padding:14px 38px;
+    font-size:16px;
+    font-weight:600;
+    color:#0f4c75;
+    background:#ffffff;
+    border-radius:40px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+    overflow:hidden;
+
+    /* depth */
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.25),
+        inset 0 0 0 rgba(255,255,255,0);
+
+    transition:all 0.35s ease;
+}
+
+/* Hover effect */
+.about-btn4:hover{
+    transform:translateY(-3px);
+    color:#fff;
+    background:linear-gradient(135deg,#ffdd00,#ff9f00);
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+
+/* Active click */
+.about-btn4:active{
+    transform:scale(0.95);
+}
+
+/* Shine effect */
+.about-btn4::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:120%;
+    height:100%;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.6),
+        transparent
+    );
+    transition:0.6s;
+}
+
+/* Shine on hover */
+.about-btn4:hover::before{
+    left:120%;
+}
+/* Ripple element */
+.about-btn4 .btn-ripple{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(255,255,255,0.7);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    animation:rippleAnim 0.6s linear;
+    pointer-events:none;
+}
+
+@keyframes rippleAnim{
+    from{
+        opacity:0.8;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    to{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(12);
+    }
+}
+
+/* ========= ABOUT SECTION CSS শেষ ========= */
+
+/* ========= WHY CHOOSE US CSS শুরু ========= */
+
+.why-choose-section{
+    padding:100px 0;
+    background:linear-gradient(135deg,#f7fbff,#e9f6ff);
+}
+
+.why-header{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 70px;
+}
+
+.why-header h2{
+    font-size:36px;
+    color:#0f4c75;
+    margin-bottom:10px;
+}
+
+.why-header p{
+    color:#555;
+}
+
+/* Cards */
+.why-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.why-card{
+    background:#ffffff;
+    padding:35px 25px;
+    border-radius:22px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.08);
+    transition:0.45s ease;
+}
+
+/* Reflective effect */
+.why-card::after{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:linear-gradient(
+        120deg,
+        rgba(255,255,255,0.45),
+        transparent,
+        transparent
+    );
+    transform:rotate(25deg);
+    opacity:0;
+    transition:0.5s;
+}
+
+.why-card:hover::after{
+    opacity:1;
+}
+
+.why-card:hover{
+    transform:translateY(-14px) scale(1.03);
+}
+
+.why-card .icon{
+    font-size:42px;
+    display:block;
+    margin-bottom:15px;
+}
+
+.why-card h3{
+    color:#0f4c75;
+    margin-bottom:10px;
+}
+
+.why-card p{
+    color:#555;
+    font-size:15px;
+}
+
+/* Animation base */
+.animate{
+    opacity:0;
+    transform:translateY(35px);
+}
+
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+}
+
+.fade-up{transform:translateY(40px)}
+.rotate-left{transform:rotate(-4deg) translateY(40px)}
+.rotate-right{transform:rotate(4deg) translateY(40px)}
+
+/* Responsive */
+@media(max-width:992px){
+    .why-cards{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .why-cards{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ========= WHY CHOOSE US CSS শেষ ========= */
+
+/* ========= COURSES SECTION CSS শুরু ========= */
+
+.courses-section{
+    padding:110px 0;
+    background:linear-gradient(180deg,#ffffff,#f4fbff);
+}
+
+.courses-header{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 70px;
+}
+
+.courses-header h2{
+    font-size:36px;
+    color:#0f4c75;
+    margin-bottom:10px;
+}
+
+.courses-header p{
+    color:#555;
+}
+
+/* Grid */
+.courses-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+/* Card */
+.course-card{
+    background:#ffffff;
+    padding:35px 30px;
+    border-radius:26px;
+    position:relative;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    transition:0.45s ease;
+    overflow:hidden;
+}
+
+/* Reflective shine */
+.course-card::after{
+    content:"";
+    position:absolute;
+    inset:-50%;
+    background:linear-gradient(
+        120deg,
+        rgba(255,255,255,0.6),
+        transparent,
+        transparent
+    );
+    transform:rotate(25deg);
+    opacity:0;
+    transition:0.6s;
+}
+
+.course-card:hover::after{
+    opacity:1;
+}
+
+.course-card:hover{
+    transform:translateY(-14px) scale(1.03);
+}
+
+/* Tag */
+.course-tag{
+    position:absolute;
+    top:18px;
+    right:18px;
+    background:#ffdd00;
+    color:#0f4c75;
+    font-size:12px;
+    padding:5px 12px;
+    border-radius:20px;
+    font-weight:700;
+}
+
+.course-card h3{
+    color:#0f4c75;
+    margin-bottom:12px;
+}
+
+.course-card p{
+    color:#555;
+    margin-bottom:15px;
+}
+
+.course-card ul{
+    padding-left:18px;
+    margin-bottom:25px;
+}
+
+.course-card ul li{
+    margin-bottom:6px;
+    color:#444;
+}
+
+/* Buttons */
+.course-btns{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.outline-btn{
+    padding:10px 22px;
+    border:2px solid #0f4c75;
+    color:#0f4c75;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+    z-index: 10;
+}
+
+.outline-btn:hover{
+    background:#0f4c75;
+    color:#ffffff;
+}
+
+.fill-btn{
+    padding:10px 26px;
+    background:#0f4c75;
+    color:#ffffff;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+    z-index: 10;
+}
+
+.fill-btn:hover{
+    background:#ffdd00;
+    color:#0f4c75;
+}
+
+/* Animation base */
+.animate{
+    opacity:0;
+    transform:translateY(35px);
+}
+
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+}
+
+.fade-up{transform:translateY(40px)}
+.rotate-left{transform:rotate(-6deg) translateY(40px)}
+.rotate-right{transform:rotate(6deg) translateY(40px)}
+
+/* Responsive */
+@media(max-width:992px){
+    .courses-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .courses-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ========= COURSES SECTION CSS শেষ ========= */
+
+/* ========= CONTACT CTA SECTION CSS শুরু ========= */
+
+.contact-cta-section{
+    padding:120px 0;
+    background:linear-gradient(
+        135deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff
+    );
+    background-size:400% 400%;
+    animation:ctaBg 10s ease infinite;
+}
+
+@keyframes ctaBg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Box */
+.contact-cta-box{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(14px);
+    border-radius:35px;
+    padding:60px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    color:#ffffff;
+}
+
+/* Left */
+.cta-left h2{
+    font-size:38px;
+    margin-bottom:10px;
+    color: #ffffff;
+}
+
+.cta-left p{
+    opacity:0.9;
+    margin-bottom:20px;
+    color: #fff;
+}
+
+.cta-points li{
+    margin-bottom:8px;
+    color: #fff;
+}
+
+/* Right */
+.cta-right{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.cta-btn{
+    padding:16px 40px;
+    border-radius:40px;
+    font-size:18px;
+    font-weight:700;
+    text-decoration:none;
+    text-align:center;
+    transition:0.35s ease;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+/* Buttons */
+.call-btn{
+    background:#ffffff;
+    color:#0f4c75;
+}
+
+.call-btn:hover{
+    background:#ffdd00;
+    transform:scale(1.08) rotate(-2deg);
+}
+
+.whatsapp-btn{
+    background:#25D366;
+    color:#ffffff;
+}
+
+.whatsapp-btn:hover{
+    background:#1ebe5d;
+    transform:scale(1.08) rotate(2deg);
+}
+
+/* Animation base */
+.animate{
+    opacity:0;
+    transform:translateY(40px);
+}
+
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+}
+
+.fade-up{transform:translateY(40px)}
+.rotate-left{transform:rotate(-6deg) translateY(40px)}
+.rotate-right{transform:rotate(6deg) translateY(40px)}
+
+/* Mobile */
+@media(max-width:768px){
+    .contact-cta-box{
+        flex-direction:column;
+        text-align:center;
+        padding:40px 25px;
+    }
+
+    .cta-right{
+        width:100%;
+    }
+
+    .cta-btn{
+        width:100%;
+    }
+}
+
+/* ========= CONTACT CTA SECTION CSS শেষ ========= */
+
+/* ========= FOOTER SECTION CSS শুরু ========= */
+
+.footer-section{
+    padding:90px 0 30px;
+    background:linear-gradient(135deg,#0f4c75,#1cb5e0,#38d9ff);
+    background-size:400% 400%;
+    animation:footerBg 12s ease infinite;
+    color:#ffffff;
+}
+.container11{
+    width: 90%;
+    margin: 0 auto;
+}
+@keyframes footerBg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+    margin-bottom:50px;
+    text-align: center;
+}
+
+.footer-box h3,
+.footer-box h4{
+    margin-bottom:15px;
+    color:#ffffff ;
+}
+
+.footer-box p{
+    opacity:0.9;
+    line-height:1.7;
+    color: #fff;
+}
+
+/* Links */
+.footer-box ul{
+    list-style:none;
+    padding:0;
+    color: #fff;
+}
+
+.footer-box ul li{
+    margin-bottom:10px;
+}
+
+.footer-box ul li a{
+    color:#ffffff;
+    text-decoration:none;
+    opacity:0.9;
+    transition:0.3s;
+}
+
+.footer-box ul li a:hover{
+    opacity:1;
+    text-decoration:underline;
+}
+
+/* Social */
+/* ===== Footer Social Icons CSS শুরু ===== */
+
+.footer-social{
+    display:flex;
+    gap:18px;
+    margin-top:15px;
+}
+
+.social-icon{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#ffffff;
+    text-decoration:none;
+    transition:0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    animation:socialFloat 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes socialFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+    100%{transform:translateY(0);}
+}
+
+/* Individual colors */
+.facebook{
+    background:#1877f2;
+}
+.youtube{
+    background:#ff0000;
+}
+.whatsapp{
+    background:#25d366;
+}
+
+/* Hover effects */
+.social-icon:hover{
+    transform:scale(1.15) rotate(8deg);
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* Mobile center align */
+@media(max-width:768px){
+    .footer-social{
+        justify-content:center;
+    }
+}
+
+/* ===== Footer Social Icons CSS শেষ ===== */
+
+.social-links{
+    display:flex;
+    gap:15px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.social-links a{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    transition:0.35s;
+}
+
+.social-links a:hover{
+    background:#ffffff;
+    color:#0f4c75;
+    transform:rotate(10deg) scale(1.1);
+}
+
+/* Bottom */
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.3);
+    padding-top:20px;
+    text-align:center;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* Animation base */
+.animate{
+    opacity:0;
+    transform:translateY(35px);
+}
+
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+    color: #333;
+}
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+    color: #333;
+}
+.fade-up{transform:translateY(40px)}
+.delay-1{transition-delay:.2s}
+.delay-2{transition-delay:.4s}
+.delay-3{transition-delay:.6s}
+
+/* Mobile */
+@media(max-width:992px){
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .social-links{
+        justify-content:center;
+    }
+}
+
+/* ========= FOOTER SECTION CSS শেষ ========= */
+
+/* ========= FIXED WHATSAPP BUTTON CSS শুরু ========= */
+
+.whatsapp-float{
+    position:fixed;
+    right:25px;
+    bottom:120px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:#ffffff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    z-index:9999;
+    text-decoration:none;
+
+    /* Animation combo */
+    animation:
+        floatMove 3s ease-in-out infinite,
+        rotateMove 6s linear infinite,
+        pulseGlow 2.5s infinite;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+    transition:0.3s ease;
+}
+
+/* Hover আরও শক্তিশালী হবে */
+.whatsapp-float:hover{
+    transform:scale(1.15);
+    background:#1ebe5d;
+}
+
+/* 🔄 Floating up-down */
+@keyframes floatMove{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* 🔁 Slow rotate */
+@keyframes rotateMove{
+    0%{rotate:0deg;}
+    100%{rotate:360deg;}
+}
+
+/* 🌊 Pulse glow */
+@keyframes pulseGlow{
+    0%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0.6);
+    }
+    70%{
+        box-shadow:0 0 0 18px rgba(37,211,102,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+/* 📱 Mobile adjust */
+@media(max-width:768px){
+    .whatsapp-float{
+        right:18px;
+        bottom:90px;
+        width:54px;
+        height:54px;
+        font-size:28px;
+    }
+}
+
+/* ========= FIXED WHATSAPP BUTTON CSS শেষ ========= */
+
+/* ========= BACK TO TOP BUTTON CSS শুরু ========= */
+
+.back-to-top{
+    position:fixed;
+    right:25px;
+    bottom:40px; /* WhatsApp বাটনের নিচে সুন্দরভাবে বসবে */
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0f4c75,#1cb5e0);
+    color:#ffffff;
+    font-size:22px;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9998;
+
+    opacity:0;
+    visibility:hidden;
+
+    /* Animation */
+    animation:
+        floatArrow 2.5s ease-in-out infinite,
+        rotateArrow 6s linear infinite;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+    transition:0.3s ease;
+}
+
+/* Hover */
+.back-to-top:hover{
+    transform:scale(1.15);
+    background:linear-gradient(135deg,#38d9ff,#6fe7ff);
+}
+
+/* Floating animation */
+@keyframes floatArrow{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+/* Slow rotate */
+@keyframes rotateArrow{
+    0%{rotate:0deg;}
+    100%{rotate:360deg;}
+}
+
+/* Show button */
+.back-to-top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .back-to-top{
+        right:18px;
+        bottom:30px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+    }
+}
+
+/* ========= BACK TO TOP BUTTON CSS শেষ ========= */
+
+/* ========= STICKY CALL BUTTON CSS শুরু ========= */
+
+.call-float{
+    position:fixed;
+    right:25px;
+    bottom:200px; /* WhatsApp-এর উপরে থাকবে */
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+    color:#ffffff;
+    font-size:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    z-index:9999;
+
+    /* Animation */
+    animation:
+        callFloat 2.8s ease-in-out infinite,
+        callPulse 2s infinite;
+
+    box-shadow:0 14px 35px rgba(0,0,0,0.35);
+    transition:0.3s ease;
+}
+
+/* Hover */
+.call-float:hover{
+    transform:scale(1.15) rotate(-8deg);
+    background:linear-gradient(135deg,#ff5722,#ff9800);
+}
+
+/* Floating */
+@keyframes callFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* Pulse ring */
+@keyframes callPulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(255,152,0,0.6);
+    }
+    70%{
+        box-shadow:0 0 0 18px rgba(255,152,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(255,152,0,0);
+    }
+}
+
+/* Mobile adjust */
+@media(max-width:768px){
+    .call-float{
+        right:18px;
+        bottom:170px;
+        width:52px;
+        height:52px;
+        font-size:24px;
+    }
+}
+
+/* ========= STICKY CALL BUTTON CSS শেষ ========= */
+/* ========= Registration CSS শুরু ========= */
+
+.reg-section{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    padding:40px 15px;
+}
+
+/* Animated Gradient Background */
+.reg-bg{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff,
+        #00c6ff
+    );
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+    z-index:-1;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Glass Form */
+.reg-container{
+    width:100%;
+    max-width:420px;
+    padding:35px 30px;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-radius:18px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.25);
+    animation:floatForm 4s ease-in-out infinite;
+}
+
+@keyframes floatForm{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+    100%{transform:translateY(0)}
+}
+
+/* Gradient Title */
+.reg-title{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    background:linear-gradient(90deg,#ffffff,#ffdd00,#ffffff);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:textMove 3s linear infinite;
+}
+
+@keyframes textMove{
+    to{background-position:200% center;}
+}
+
+.reg-subtitle{
+    text-align:center;
+    color:#f1f1f1;
+    margin-bottom:30px;
+}
+
+/* === FIXED INPUT DESIGN === */
+#registrationForm input,
+#registrationForm select{
+    width:100%;
+    padding:14px 14px;
+    margin-bottom:18px;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.45);
+    border-radius:10px;
+    color:#fff;
+    font-size:15px;
+    outline:none;
+    transition:0.3s;
+}
+
+#registrationForm input::placeholder{
+    color:#f1f1f1;
+}
+
+#registrationForm input:focus,
+#registrationForm select:focus{
+    border-color:#ffffff;
+    background:rgba(255,255,255,0.25);
+    box-shadow:0 0 0 2px rgba(255,255,255,0.2);
+}
+
+/* Select Arrow Color Fix */
+#registrationForm select option{
+    color:#000;
+}
+
+/* Button */
+#registrationForm button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:30px;
+    background:#ffffff;
+    color:#0f4c75;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+#registrationForm button:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Mobile */
+@media(max-width:480px){
+    .reg-container{
+        padding:30px 20px;
+    }
+}
+
+/* ========= Registration CSS শেষ ========= */
+
+/* ========= TRAINER HERO CSS শুরু ========= */
+
+.trainer-hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(
+        120deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size:400% 400%;
+    animation:bgAnimate 12s ease infinite;
+    padding:60px 0;
+}
+
+@keyframes bgAnimate{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Container */
+.trainer-container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+}
+
+/* Text Content */
+.trainer-content{
+    color:#fff;
+    animation:fadeSlide 1.2s ease;
+}
+
+@keyframes fadeSlide{
+    from{opacity:0; transform:translateY(40px)}
+    to{opacity:1; transform:translateY(0)}
+}
+
+/* Gradient Name */
+.trainer-name{
+    font-size:48px;
+    background:linear-gradient(90deg,#ffffff,#ffdd00,#ffffff);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:textMove 3s linear infinite;
+}
+
+@keyframes textMove{
+    to{background-position:200% center;}
+}
+
+.trainer-title{
+    margin:15px 0;
+    font-weight:500;
+    opacity:0.9;
+}
+
+.trainer-tagline{
+    font-size:18px;
+    margin-bottom:25px;
+    opacity:0.95;
+}
+
+/* Highlights */
+.trainer-highlights{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:30px;
+}
+
+.highlight-item{
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(10px);
+    padding:12px 14px;
+    border-radius:10px;
+    font-size:15px;
+    animation:floatItem 3s ease-in-out infinite;
+}
+
+@keyframes floatItem{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-6px)}
+    100%{transform:translateY(0)}
+}
+
+/* Buttons */
+.trainer-buttons{
+    display:flex;
+    gap:15px;
+}
+
+.btn{
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.4s;
+}
+
+.primary-btn{
+    background:#fff;
+    color:#0f4c75;
+}
+
+.primary-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.secondary-btn{
+    border:2px solid #fff;
+    color:#fff;
+}
+
+.secondary-btn:hover{
+    background:#fff;
+    color:#0f4c75;
+}
+
+/* Trainer Image */
+.trainer-image{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+}
+
+.trainer-image img{
+    width:65%;
+    filter:drop-shadow(0 25px 40px rgba(0,0,0,0.35));
+    animation:imageFloat 4s ease-in-out infinite;
+}
+
+@keyframes imageFloat{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+    100%{transform:translateY(0)}
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .trainer-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+    .trainer-highlights{
+        grid-template-columns:1fr;
+    }
+    .trainer-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+}
+
+/* ========= TRAINER HERO CSS শেষ ========= */
+/* ========= GALLERY CSS শুরু ========= */
+
+.gallery-section{
+    padding:80px 0;
+    background:linear-gradient(120deg,#0f4c75,#1cb5e0,#38d9ff);
+    background-size:400% 400%;
+    animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Header */
+.gallery-header{
+    text-align:center;
+    color:#fff;
+    margin-bottom:40px;
+}
+
+.gallery-title{
+    font-size:42px;
+    background:linear-gradient(90deg,#fff,#ffdd00,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-size:200% auto;
+    animation:textMove 3s linear infinite;
+}
+
+@keyframes textMove{
+    to{background-position:200% center;}
+}
+
+.gallery-subtitle{
+    opacity:0.9;
+}
+
+/* Filters */
+.gallery-filters{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.filter-btn{
+    background:rgba(255,255,255,0.2);
+    border:none;
+    color:#fff;
+    padding:10px 22px;
+    margin:6px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover{
+    background:#fff;
+    color:#0f4c75;
+}
+
+/* Grid */
+.gallery-grid{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+/* Item */
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    cursor:pointer;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+.gallery-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+.gallery-item a{
+    text-decoration: none;
+    color: #fff;
+}
+.gallery-item:hover img{
+    transform:scale(1.1);
+}
+
+/* Overlay */
+.gallery-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,0.45);
+    color:#fff;
+    font-weight:600;
+    opacity:0;
+    transition:0.4s;
+}
+
+.gallery-item:hover .gallery-overlay{
+    opacity:1;
+}
+
+/* Lightbox */
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.lightbox-img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:#fff;
+    cursor:pointer;
+}
+/* ========= GALLERY CSS শেষ ========= */
+
+/* ===== GLOBAL STYLE ===== */
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:#fff;
+}
+
+/* ===== COMMON ===== */
+.section{
+    padding:80px 6%;
+}
+.center{
+    text-align:center;
+}
+
+/* ===== HEADINGS ===== */
+h1{
+    font-size:42px;
+    background: linear-gradient(90deg,#00f2fe,#4facfe,#43e97b);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+h2{
+    font-size:34px;
+}
+p{
+    font-size:18px;
+    opacity:.9;
+}
+
+/* ===== PRINT GRID ===== */
+.print-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:50px;
+    margin-top:60px;
+}
+
+/* Hanging Print Box */
+.print-box{
+    position:relative;
+    background:linear-gradient(145deg,#ffffff,#e6e6e6);
+    padding:15px;
+    border-radius:16px;
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+    transform-origin:top center;
+    animation:swing 4s ease-in-out infinite;
+    color: #00a1a9;
+    text-align: center;
+}
+
+/* Rope */
+.print-box::before{
+    content:'';
+    position:absolute;
+    top:-50px;
+    left:50%;
+    transform:translateX(-50%);
+    width:3px;
+    height:50px;
+    background:linear-gradient(#d2b48c,#8b6b3e);
+}
+
+/* Image */
+.print-box img{
+    width:100%;
+    border-radius:12px;
+}
+
+/* Swing Animation */
+@keyframes swing{
+    0%{transform:rotate(0deg);}
+    50%{transform:rotate(3deg);}
+    100%{transform:rotate(0deg);}
+}
+
+/* ===== INFO CARDS ===== */
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:40px;
+    margin-top:50px;
+}
+
+.card{
+    background:linear-gradient(135deg,#1d2671,#c33764);
+    padding:35px;
+    border-radius:24px;
+    box-shadow:0 25px 70px rgba(0,0,0,.4);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.price{
+    font-size:42px;
+    color:#00ffcc;
+    font-weight:bold;
+}
+
+/* Feature Card */
+.feature{
+    background:linear-gradient(135deg,#11998e,#38ef7d);
+    color:#003333;
+    font-weight:600;
+}
+
+/* ===== CTA ===== */
+.cta{
+    background:linear-gradient(135deg,#ff512f,#f09819,#fbc531);
+    padding:80px 40px;
+    border-radius:40px;
+    box-shadow:0 40px 100px rgba(0,0,0,.5);
+}
+
+.cta a{
+    display:inline-block;
+    margin-top:30px;
+    padding:18px 40px;
+    background:#fff;
+    color:#000;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:40px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .print-box{
+        animation:none;
+    }
+    h1{font-size:32px;}
+}
+
+
+
+.note-error {
+  max-width: 420px;
+  margin: 15px auto 0;
+  padding: 12px 16px;
+  background: #ffecec;
+  border: 1px solid #ffb3b3;
+  border-radius: 10px;
+  color: #c62828;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.note-error .icon {
+  font-size: 18px;
+}
+

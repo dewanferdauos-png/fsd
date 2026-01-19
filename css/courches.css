@@ -1,0 +1,998 @@
+/* ===== CSS RESET ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #222;
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+video{
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    opacity: 0.9;
+}
+button{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+section{
+    width: 100%;
+    position: relative;
+}
+
+.container{
+    max-width:95%;
+    margin:0 auto;
+    padding: 0 20px;
+}
+
+/* ========= PAGE LOADER CSS শুরু ========= */
+#pageLoader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff
+    );
+    background-size:400% 400%;
+    animation:loaderBg 6s ease infinite;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:100000;
+}
+
+@keyframes loaderBg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Loader Box */
+.loader-box{
+    text-align:center;
+    color:#ffffff;
+    animation:fadeIn 1s ease;
+}
+
+/* Spinner */
+.spinner{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:6px solid rgba(255,255,255,0.3);
+    border-top:6px solid #ffffff;
+    margin:0 auto 20px;
+    animation:spin 1.1s linear infinite;
+}
+.loder-img{
+    width: 100px;
+    height: auto;
+}
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* Text */
+.loader-box h3{
+    margin-bottom:6px;
+    letter-spacing:1px;
+}
+
+.loader-box p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* Fade out */
+#pageLoader.hide{
+    opacity:0;
+    visibility:hidden;
+    transition:0.6s ease;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .spinner{
+        width:55px;
+        height:55px;
+    }
+}
+/* ========= PAGE LOADER CSS শেষ ========= */
+
+/* ========= SCROLL PROGRESS BAR CSS শুরু ========= */
+#scrollProgressContainer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:rgba(0,0,0,0.08);
+    z-index:10000;
+}
+
+#scrollProgressBar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size:300% 300%;
+    animation:progressGlow 4s ease infinite;
+    transition:width 0.15s ease;
+}
+
+/* Gradient animation */
+@keyframes progressGlow{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Mobile slightly thinner */
+@media(max-width:768px){
+    #scrollProgressContainer{
+        height:4px;
+    }
+}
+
+/* ========= SCROLL PROGRESS BAR CSS শেষ ========= */
+/* ====== নেভমেনু CSS শুরু ====== */
+/* Navbar Base */
+.navbar{
+    width:100%;
+    padding:15px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background: linear-gradient(
+        270deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size: 600% 600%;
+    animation: gradientMove 8s ease infinite;
+     position:relative;
+    z-index:9999;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Logo */
+.logo img{
+    height:50px;
+}
+
+/* Menu Desktop */
+.nav-menu ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+.nav-menu ul li a{
+    text-decoration:none;
+    color:#fff;
+    padding:8px 16px;
+    border-radius:25px;
+    transition:0.3s;
+}
+
+.nav-menu ul li a:hover{
+    background:rgba(255,255,255,0.25);
+}
+
+/* Search */
+.search-box input{
+    padding:8px 14px;
+    border:none;
+    border-radius:20px;
+    outline:none;
+}
+
+/* Hamburger */
+.hamburger{
+    display:none;
+    font-size:26px;
+    color:white;
+    cursor:pointer;
+}
+
+/* =========================
+   📱 Mobile (0–575px)
+========================= */
+@media (max-width:575px){
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav-menu{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background: linear-gradient(180deg,#0f4c75,#1cb5e0);
+        display:none;
+    }
+
+    .nav-menu ul{
+        flex-direction:column;
+        align-items:center;
+        padding:20px 0;
+        gap:15px;
+    }
+
+    .search-box{
+        display:none;
+    }
+}
+
+/* =========================
+   📱 Tablet (576–991px)
+========================= */
+@media (min-width:576px) and (max-width:991px){
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav-menu{
+        position:absolute;
+        top:80px;
+        left:0;
+        width:100%;
+        background: linear-gradient(180deg,#0f4c75,#1cb5e0);
+        display:none;
+    }
+
+    .nav-menu ul{
+        flex-direction:column;
+        align-items:center;
+        padding:25px 0;
+        gap:18px;
+    }
+
+    .search-box{
+        display:none;
+    }
+}
+
+/* =========================
+   💻 Laptop/Desktop (992px+)
+========================= */
+@media (min-width:992px){
+    .nav-menu{
+        display:block !important;
+    }
+}
+
+/* ====== নেভমেনু CSS শেষ ====== */
+
+/* ========= FOOTER SECTION CSS শুরু ========= */
+
+.footer-section{
+    padding:60px 0 30px;
+    background:linear-gradient(135deg,#0f4c75,#1cb5e0,#38d9ff);
+    background-size:400% 400%;
+    animation:footerBg 12s ease infinite;
+    color:#ffffff;
+}
+
+@keyframes footerBg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:40px;
+    margin-bottom:50px;
+}
+
+.footer-box h3,
+.footer-box h4{
+    margin-bottom:15px;
+    color:#ffffff ;
+}
+
+.footer-box p{
+    opacity:0.9;
+    line-height:1.7;
+    color: #fff;
+}
+
+/* Links */
+.footer-box ul{
+    list-style:none;
+    padding:0;
+    color: #fff;
+}
+
+.footer-box ul li{
+    margin-bottom:10px;
+}
+
+.footer-box ul li a{
+    color:#ffffff;
+    text-decoration:none;
+    opacity:0.9;
+    transition:0.3s;
+}
+
+.footer-box ul li a:hover{
+    opacity:1;
+    text-decoration:underline;
+}
+
+/* Social */
+/* ===== Footer Social Icons CSS শুরু ===== */
+
+.footer-social{
+    display:flex;
+    gap:18px;
+    margin-top:15px;
+}
+
+.social-icon{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#ffffff;
+    text-decoration:none;
+    transition:0.35s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    animation:socialFloat 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes socialFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+    100%{transform:translateY(0);}
+}
+
+/* Individual colors */
+.facebook{
+    background:#1877f2;
+}
+.youtube{
+    background:#ff0000;
+}
+.whatsapp{
+    background:#25d366;
+}
+
+/* Hover effects */
+.social-icon:hover{
+    transform:scale(1.15) rotate(8deg);
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+}
+
+/* Mobile center align */
+@media(max-width:768px){
+    .footer-social{
+        justify-content:center;
+    }
+}
+
+/* ===== Footer Social Icons CSS শেষ ===== */
+
+.social-links{
+    display:flex;
+    gap:15px;
+}
+
+.social-links a{
+    width:50px;
+    height:42px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    transition:0.35s;
+}
+
+.social-links a:hover{
+    background:#ffffff;
+    color:#0f4c75;
+    transform:rotate(10deg) scale(1.1);
+}
+
+/* Bottom */
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.3);
+    padding-top:20px;
+    text-align:center;
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* Animation base */
+.animate{
+    opacity:0;
+    transform:translateY(35px);
+}
+
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+    color: #333;
+}
+.animate.show{
+    opacity:1;
+    transform:none;
+    transition:0.7s ease;
+    color: #333;
+}
+.fade-up{transform:translateY(40px)}
+.delay-1{transition-delay:.2s}
+.delay-2{transition-delay:.4s}
+.delay-3{transition-delay:.6s}
+
+/* Mobile */
+@media(max-width:992px){
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .social-links{
+        justify-content:center;
+    }
+}
+
+/* ========= FOOTER SECTION CSS শেষ ========= */
+
+/* ========= FIXED WHATSAPP BUTTON CSS শুরু ========= */
+
+.whatsapp-float{
+    position:fixed;
+    right:25px;
+    bottom:120px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:#ffffff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    z-index:9999;
+    text-decoration:none;
+
+    /* Animation combo */
+    animation:
+        floatMove 3s ease-in-out infinite,
+        rotateMove 6s linear infinite,
+        pulseGlow 2.5s infinite;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+    transition:0.3s ease;
+}
+
+/* Hover আরও শক্তিশালী হবে */
+.whatsapp-float:hover{
+    transform:scale(1.15);
+    background:#1ebe5d;
+}
+
+/* 🔄 Floating up-down */
+@keyframes floatMove{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* 🔁 Slow rotate */
+@keyframes rotateMove{
+    0%{rotate:0deg;}
+    100%{rotate:360deg;}
+}
+
+/* 🌊 Pulse glow */
+@keyframes pulseGlow{
+    0%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0.6);
+    }
+    70%{
+        box-shadow:0 0 0 18px rgba(37,211,102,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+    }
+}
+
+/* 📱 Mobile adjust */
+@media(max-width:768px){
+    .whatsapp-float{
+        right:18px;
+        bottom:90px;
+        width:54px;
+        height:54px;
+        font-size:28px;
+    }
+}
+
+/* ========= FIXED WHATSAPP BUTTON CSS শেষ ========= */
+/* ========= BACK TO TOP BUTTON CSS শুরু ========= */
+
+.back-to-top{
+    position:fixed;
+    right:25px;
+    bottom:40px; /* WhatsApp বাটনের নিচে সুন্দরভাবে বসবে */
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0f4c75,#1cb5e0);
+    color:#ffffff;
+    font-size:22px;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9998;
+
+    opacity:0;
+    visibility:hidden;
+
+    /* Animation */
+    animation:
+        floatArrow 2.5s ease-in-out infinite,
+        rotateArrow 6s linear infinite;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+    transition:0.3s ease;
+}
+
+/* Hover */
+.back-to-top:hover{
+    transform:scale(1.15);
+    background:linear-gradient(135deg,#38d9ff,#6fe7ff);
+}
+
+/* Floating animation */
+@keyframes floatArrow{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+/* Slow rotate */
+@keyframes rotateArrow{
+    0%{rotate:0deg;}
+    100%{rotate:360deg;}
+}
+
+/* Show button */
+.back-to-top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .back-to-top{
+        right:18px;
+        bottom:30px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+    }
+}
+
+/* ========= BACK TO TOP BUTTON CSS শেষ ========= */
+
+/* ========= STICKY CALL BUTTON CSS শুরু ========= */
+
+.call-float{
+    position:fixed;
+    right:25px;
+    bottom:200px; /* WhatsApp-এর উপরে থাকবে */
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+    color:#ffffff;
+    font-size:26px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    z-index:9999;
+
+    /* Animation */
+    animation:
+        callFloat 2.8s ease-in-out infinite,
+        callPulse 2s infinite;
+
+    box-shadow:0 14px 35px rgba(0,0,0,0.35);
+    transition:0.3s ease;
+}
+
+/* Hover */
+.call-float:hover{
+    transform:scale(1.15) rotate(-8deg);
+    background:linear-gradient(135deg,#ff5722,#ff9800);
+}
+
+/* Floating */
+@keyframes callFloat{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* Pulse ring */
+@keyframes callPulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(255,152,0,0.6);
+    }
+    70%{
+        box-shadow:0 0 0 18px rgba(255,152,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(255,152,0,0);
+    }
+}
+
+/* Mobile adjust */
+@media(max-width:768px){
+    .call-float{
+        right:18px;
+        bottom:170px;
+        width:52px;
+        height:52px;
+        font-size:24px;
+    }
+}
+
+/* ========= STICKY CALL BUTTON CSS শেষ ========= */
+
+/* ===================================================
+   COURSE PAGE CSS শুরু
+   Animated • Gradient • Glass • Responsive
+=================================================== */
+
+/* ---------- Common ---------- */
+.course-page {
+    font-family: 'Segoe UI', sans-serif;
+    color: #0f2a3d;
+}
+
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+/* ---------- HERO SECTION ---------- */
+.course-hero {
+    position: relative;
+    padding: 120px 0 100px;
+    overflow: hidden;
+    background: linear-gradient(
+        120deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff,
+        #6fe7ff
+    );
+    background-size: 400% 400%;
+    animation: heroGradient 12s ease infinite;
+}
+
+@keyframes heroGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.course-hero-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.course-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.course-subtitle {
+    font-size: 18px;
+    color: #e9faff;
+    margin-bottom: 35px;
+}
+
+/* ---------- Buttons ---------- */
+.course-hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    padding: 14px 32px;
+    background: #ffffff;
+    color: #0f4c75;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.btn-outline {
+    padding: 14px 32px;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.btn-outline:hover {
+    background: #fff;
+    color: #0f4c75;
+}
+
+/* ---------- SECTION TITLE ---------- */
+.section-title {
+    text-align: center;
+    font-size: clamp(28px, 4vw, 36px);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* ---------- WHAT YOU WILL LEARN ---------- */
+.course-learn {
+    padding: 20px 0;
+    background: #f7fbff;
+}
+
+.learn-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.learn-item {
+    padding: 22px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 500;
+    transition: 0.4s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.learn-item:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+}
+
+/* ---------- COURSE FOR ---------- */
+.course-for {
+    padding: 25px 0;
+}
+
+.course-for-list {
+    max-width: 600px;
+    margin: auto;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.course-for-list li {
+    padding: 14px 0;
+    font-size: 17px;
+    border-bottom: 1px dashed #ccc;
+}
+
+/* ---------- FEATURES ---------- */
+.course-features {
+    padding: 30px 0;
+    background: linear-gradient(135deg, #eef9ff, #ffffff);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+}
+
+.feature-box {
+    padding: 30px 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.65);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    font-weight: 600;
+    transition: 0.4s;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.feature-box:hover {
+    transform: rotate(-1deg) translateY(-6px);
+}
+
+/* ---------- DURATION ---------- */
+.parant1{
+    display: flex;
+    gap: 20px;
+}
+.course-duration {
+    padding: 10px 0;
+    flex: 1;
+}
+
+.duration-box {
+    max-width: 420px;
+    margin: auto;
+    padding: 60px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #1cb5e0, #6fe7ff);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+
+.duration-box p {
+    margin: 10px 0;
+    font-size: 17px;
+}
+
+/* ---------- RESULT ---------- */
+.course-result {
+    padding: 60px 0;
+    background: #f7fbff;
+    flex: 1;
+}
+
+.result-list {
+    max-width: 600px;
+    margin: auto;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.result-list li {
+    padding: 12px 0;
+    font-size: 17px;
+}
+/* 📱 Mobile */
+@media (max-width: 768px){
+    .parant1{
+        flex-direction: column;
+    }
+}
+/* ---------- FINAL CTA ---------- */
+.course-cta {
+    padding: 60px 0;
+    background: linear-gradient(
+        120deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff
+    );
+    text-align: center;
+}
+
+.cta-title {
+    color: #fff;
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 35px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-whatsapp {
+    padding: 14px 32px;
+    background: #25d366;
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.4s;
+}
+
+.btn-whatsapp:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+    .course-hero {
+        padding: 90px 0 80px;
+    }
+
+    .course-hero-content {
+        text-align: center;
+        margin: auto;
+    }
+
+    .course-hero-buttons {
+        justify-content: center;
+    }
+}
+
+/* ===================================================
+   COURSE PAGE CSS শেষ
+=================================================== */

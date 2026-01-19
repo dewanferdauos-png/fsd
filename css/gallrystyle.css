@@ -1,0 +1,273 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#0f2c35;
+color:#fff;
+padding:40px;
+}
+
+.gallery-section{
+max-width:1200px;
+margin:auto;
+text-align:center;
+}
+
+h2{
+font-size:32px;
+margin-bottom:25px;
+}
+
+/* FILTER */
+.filter-buttons{
+margin-bottom:30px;
+}
+
+.filter-buttons button{
+background:transparent;
+border:2px solid #00e0ff;
+color:#00e0ff;
+padding:10px 22px;
+margin:5px;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.filter-buttons button.active,
+.filter-buttons button:hover{
+background:#00e0ff;
+color:#000;
+}
+
+/* GRID */
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.gallery-item{
+overflow:hidden;
+border-radius:15px;
+cursor:pointer;
+animation:fadeIn .5s ease;
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.4s;
+}
+
+.gallery-item:hover img{
+transform:scale(1.1);
+}
+
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+.lightbox .close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+cursor:pointer;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;transform:scale(.95)}
+to{opacity:1;transform:scale(1)}
+}
+
+/* BACK BUTTON */
+.back{
+position: fixed;
+top: 20px;
+left:20px;
+z-index: 999;
+text-align:center;
+}
+.back a{
+box-shadow:0 10px 25px rgba(0,224,255,.4);
+text-decoration:none;
+color:#000;
+background:#00e0ff;
+padding:15px 40px;
+border-radius:40px;
+font-weight:bold;
+transition:.3s;
+}
+.back a:hover{
+background:#fff;
+transform:scale(1.1);
+transform:translateY(-3px) scale(1.05);
+
+}
+/* ========= BACK TO TOP BUTTON CSS শুরু ========= */
+
+.back-to-top{
+    position:fixed;
+    right:25px;
+    bottom:40px; /* WhatsApp বাটনের নিচে সুন্দরভাবে বসবে */
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0f4c75,#1cb5e0);
+    color:#ffffff;
+    font-size:22px;
+    border:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9998;
+
+    opacity:0;
+    visibility:hidden;
+
+    /* Animation */
+    animation:
+        floatArrow 2.5s ease-in-out infinite,
+        rotateArrow 6s linear infinite;
+
+    box-shadow:0 12px 30px rgba(0,0,0,0.3);
+    transition:0.3s ease;
+}
+
+/* Hover */
+.back-to-top:hover{
+    transform:scale(1.15);
+    background:linear-gradient(135deg,#38d9ff,#6fe7ff);
+}
+
+/* Floating animation */
+@keyframes floatArrow{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-8px);}
+    100%{transform:translateY(0);}
+}
+
+/* Slow rotate */
+@keyframes rotateArrow{
+    0%{rotate:0deg;}
+    100%{rotate:360deg;}
+}
+
+/* Show button */
+.back-to-top.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .back-to-top{
+        right:18px;
+        bottom:30px;
+        width:46px;
+        height:46px;
+        font-size:20px;
+    }
+}
+
+/* ========= BACK TO TOP BUTTON CSS শেষ ========= */
+
+/* ========= PAGE LOADER CSS শুরু ========= */
+#pageLoader{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        #0f4c75,
+        #1cb5e0,
+        #38d9ff
+    );
+    background-size:400% 400%;
+    animation:loaderBg 6s ease infinite;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:100000;
+}
+
+@keyframes loaderBg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+/* Loader Box */
+.loader-box{
+    text-align:center;
+    color:#ffffff;
+    animation:fadeIn 1s ease;
+}
+
+/* Spinner */
+.spinner{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:6px solid rgba(255,255,255,0.3);
+    border-top:6px solid #ffffff;
+    margin:0 auto 20px;
+    animation:spin 1.1s linear infinite;
+}
+.loder-img{
+    width: 100px;
+    height: auto;
+}
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+/* Text */
+.loader-box h3{
+    margin-bottom:6px;
+    letter-spacing:1px;
+}
+
+.loader-box p{
+    font-size:14px;
+    opacity:0.9;
+}
+
+/* Fade out */
+#pageLoader.hide{
+    opacity:0;
+    visibility:hidden;
+    transition:0.6s ease;
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .spinner{
+        width:55px;
+        height:55px;
+    }
+}
+/* ========= PAGE LOADER CSS শেষ ========= */

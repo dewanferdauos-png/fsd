@@ -1,0 +1,288 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+/* Animated Gradient Background */
+body{
+background: linear-gradient(270deg,#0f2027,#203a43,#2c5364,#1e3c72);
+background-size:600% 600%;
+animation:bg 12s ease infinite;
+color:#fff;
+padding:40px;
+}
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* HERO */
+.hero{
+    position: relative;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+margin-bottom:80px;
+}
+#typing-text::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+/* FLOATING INFO BOX */
+.floating-info{
+position:absolute;
+left:50%;
+top:82%;
+transform:translate(-50%,-50%);
+background:rgba(0,0,0,.35);
+backdrop-filter: blur(10px);
+border-radius:20px;
+padding:25px 30px;
+width:280px;
+color:#fff;
+box-shadow:0 20px 40px rgba(0,0,0,.6);
+animation: floatBox 4s ease-in-out infinite;
+border:2px solid rgba(0,224,255,.5);
+text-align: center;
+}
+
+/* Name */
+.trainer-name{
+font-size:22px;
+margin-bottom:5px;
+background:linear-gradient(90deg,#00e0ff,#00ff9d);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+/* Phone */
+.trainer-phone{
+font-size:15px;
+margin-bottom:15px;
+opacity:.9;
+}
+
+/* Skills */
+.trainer-skills{
+list-style:none;
+padding:0;
+}
+.trainer-skills li{
+font-size:14px;
+margin-bottom:8px;
+transition:.3s;
+}
+.trainer-skills li:hover{
+transform:translateX(8px);
+color:#00e0ff;
+}
+
+/* Floating animation */
+@keyframes floatBox{
+0%{transform:translate(-50%,-50%) translateY(0)}
+50%{transform:translate(-50%,-50%) translateY(-15px)}
+100%{transform:translate(-50%,-50%) translateY(0)}
+}
+
+/* Responsive */
+@media(max-width:768px){
+.floating-info{
+position:relative;
+left: 138px;
+top:150px;
+transform:none;
+margin:40px auto;
+}
+}
+@media(max-width:885px){
+.floating-info{
+position:relative;
+left: 138px;
+top:150px;
+transform:none;
+margin:40px auto;
+}
+}
+
+.hero-text{
+    animation: slideLeft 1.5s;
+    padding: 15px;
+}
+.hero-text h1{
+font-size:40px;
+margin-bottom:15px;
+}
+.hero-img{
+width: 20%px;
+height: 500px;
+border-radius:50%;
+overflow:hidden;
+box-shadow:0 20px 40px rgba(0,0,0,.5);
+animation:float 4s ease-in-out infinite;
+transform:scaleX(-1);
+}
+.hero-img img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+@keyframes float{
+50%{transform:translateY(-15px) scaleX(-1)}
+}
+
+/* SECTIONS */
+section{
+margin-bottom:70px;
+animation:fadeUp 1.2s;
+}
+h2{
+font-size:30px;
+margin-bottom:20px;
+}
+
+/* SKILLS */
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+.skill-card{
+background:rgba(255,255,255,.12);
+padding:25px;
+border-radius:15px;
+text-align:center;
+transition:.4s;
+}
+.skill-card:hover{
+transform:rotateY(12deg) scale(1.05);
+background:rgba(255,255,255,.25);
+}
+
+/* CERTIFICATES */
+.certificates{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+.cert{
+background:rgba(0,0,0,.35);
+padding:30px;
+border-radius:15px;
+text-align:center;
+animation:zoom 1s;
+}
+
+/* EXPERIENCE */
+.timeline{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+.exp{
+background:rgba(255,255,255,.1);
+padding:25px;
+border-left:4px solid #00e0ff;
+border-radius:10px;
+}
+
+/* BACK BUTTON */
+.back{
+position: fixed;
+top: 20px;
+left:20px;
+z-index: 999;
+text-align:center;
+}
+.back a{
+box-shadow:0 10px 25px rgba(0,224,255,.4);
+text-decoration:none;
+color:#000;
+background:#00e0ff;
+padding:15px 40px;
+border-radius:40px;
+font-weight:bold;
+transition:.3s;
+}
+.back a:hover{
+background:#fff;
+transform:scale(1.1);
+transform:translateY(-3px) scale(1.05);
+
+}
+@media (max-width: 768px){
+    .back a{
+box-shadow:0 10px 25px rgba(0,224,255,.4);
+text-decoration:none;
+color:#000;
+background:#00e0ff;
+padding:10px 45px;
+border-radius:40px;
+font-weight:bold;
+transition:.3s;
+    }
+}
+
+/* Animations */
+@keyframes slideLeft{
+from{opacity:0;transform:translateX(-40px)}
+to{opacity:1;transform:translateX(0)}
+}
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
+@keyframes zoom{
+from{opacity:0;transform:scale(.7)}
+to{opacity:1;transform:scale(1)}
+}
+
+/* Responsive */
+@media(max-width:768px){
+.hero{
+flex-direction:column;
+text-align:center;
+}
+.hero-img{
+margin-top:30px;
+}
+.hero-text h1{
+font-size:30px;
+}
+}
+.facebook-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+margin:12px 0 18px;
+padding:10px 16px;
+border-radius:30px;
+background:#1877f2;
+color:#fff;
+text-decoration:none;
+font-size:14px;
+font-weight:600;
+transition:.3s;
+box-shadow:0 6px 15px rgba(24,119,242,.4);
+}
+
+.facebook-btn:hover{
+background:#145dbf;
+transform:translateY(-2px);
+}
+
+.facebook-btn img{
+width:18px;
+height:18px;
+}
