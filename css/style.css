@@ -273,12 +273,11 @@ html, body {
     height:100vh;
     position:relative;
     overflow:hidden;
-
     background: linear-gradient(
         270deg,
-        #0f4c75,
-        #1cb5e0,
-        #38d9ff,
+        #17363e,
+        #013a62,
+        #3d19ff,
         #6fe7ff
     );
     background-size:600% 600%;
@@ -2192,4 +2191,5 @@ p{
 .note-error .icon {
   font-size: 18px;
 }
+
 
