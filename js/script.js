@@ -110,7 +110,7 @@ setInterval(() => {
 
     if(diff <= 0){
         document.querySelector(".floating-countdown").innerHTML =
-            "<h3 style='color:white'>🎉 আজই ট্রেনিং শুরু!</h3>";
+            "<h3 style='color:white'>🎉 পরবর্তি ব্যাচ শুরুর তারিখ জানানো হবে!</h3>";
         return;
     }
 
@@ -501,3 +501,4 @@ window.addEventListener("scroll", () => {
         header.style.boxShadow = "none";
     }
 });
+
