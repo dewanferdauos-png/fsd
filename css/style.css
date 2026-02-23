@@ -628,6 +628,41 @@ html, body {
     }
 }
 
+/* ===== গুরুত্বপূর্ণ নোটিশের মূল ডিজাইন ===== */
+.important-notice {
+    width: 100%;                 /* পুরো প্রস্থ জুড়ে থাকবে */
+    background: linear-gradient(90deg, #ff0000, #ff4d4d); /* লাল গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
+    color: #ffffff;              /* লেখার রং সাদা */
+    text-align: center;          /* লেখা মাঝখানে */
+    padding: 15px 10px;          /* উপরে নিচে ফাঁকা জায়গা */
+    font-size: 20px;             /* লেখার সাইজ বড় */
+    font-weight: bold;           /* লেখা বোল্ড */
+    position: relative;
+    z-index: 9999;               /* যেনো সব কিছুর উপরে থাকে */
+    box-shadow: 0 0 15px rgba(0,0,0,0.3); /* হালকা শ্যাডো */
+    animation: pulseNotice 1.5s infinite; /* অ্যানিমেশন চালু */
+}
+
+/* ===== মোবাইল রেসপন্সিভ ===== */
+@media (max-width: 768px) {
+    .important-notice {
+        font-size: 16px;  /* মোবাইলে একটু ছোট ফন্ট */
+        padding: 12px;
+    }
+}
+
+/* ===== ব্লিংক/পালস অ্যানিমেশন ===== */
+@keyframes pulseNotice {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
 /* ========= ABOUT SECTION CSS শুরু ========= */
 .container{
@@ -2191,5 +2226,6 @@ p{
 .note-error .icon {
   font-size: 18px;
 }
+
 
 
