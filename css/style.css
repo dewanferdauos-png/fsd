@@ -1670,7 +1670,7 @@ html, body {
     width:100%;
     max-width:420px;
     padding:35px 30px;
-    background:(rgb(0 0 0 / 18%);
+    background:(rgb(0 0 0 / 18);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
     border-radius:18px;
