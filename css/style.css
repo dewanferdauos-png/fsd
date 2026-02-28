@@ -1670,7 +1670,7 @@ html, body {
     width:100%;
     max-width:420px;
     padding:35px 30px;
-    background:rgba(0,0,0,0.25);
+    background:rgba(255,255,255,0.18);
     backdrop-filter:blur(18px);
     -webkit-backdrop-filter:blur(18px);
     border-radius:18px;
@@ -2226,6 +2226,7 @@ p{
 .note-error .icon {
   font-size: 18px;
 }
+
 
 
 
