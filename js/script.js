@@ -102,7 +102,7 @@ if(noticeTrack){
 //========== FLOATING COUNTDOWN TIMER JS ==========//
 
 // 🔴 ট্রেনিং শুরুর তারিখ দিন
-const floatingDate = new Date("2026-03-24 09:00:00").getTime();
+const floatingDate = new Date("2026-04-15 09:00:00").getTime();
 
 setInterval(() => {
     const now = new Date().getTime();
@@ -127,7 +127,6 @@ setInterval(() => {
 }, 1000);
 
 //========== FLOATING COUNTDOWN TIMER JS END ==========//
-
 
 // ========= ABOUT SECTION JS শুরু =========
 
@@ -175,7 +174,6 @@ window.addEventListener('scroll', () => {
 });
 
 // ========= ABOUT SECTION JS শেষ =========
-
 // ========= WHY CHOOSE US JS শুরু =========
 
 const whyItems = document.querySelectorAll('.why-choose-section .animate');
@@ -193,7 +191,6 @@ window.addEventListener('scroll', revealWhy);
 revealWhy();
 
 // ========= WHY CHOOSE US JS শেষ =========
-
 // ========= COURSES SECTION JS শুরু =========
 
 const courseItems = document.querySelectorAll('.courses-section .animate');
@@ -211,7 +208,6 @@ window.addEventListener('scroll', revealCourses);
 revealCourses();
 
 // ========= COURSES SECTION JS শেষ =========
-
 // ========= CONTACT CTA SECTION JS শুরু =========
 
 const ctaItems = document.querySelectorAll('.contact-cta-section .animate');
