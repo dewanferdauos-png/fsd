@@ -102,7 +102,7 @@ if(noticeTrack){
 //========== FLOATING COUNTDOWN TIMER JS ==========//
 
 // 🔴 ট্রেনিং শুরুর তারিখ দিন
-const floatingDate = new Date("2026-04-15 09:00:00").getTime();
+const floatingDate = new Date("2026-04-14 09:00:00").getTime();
 
 setInterval(() => {
     const now = new Date().getTime();
