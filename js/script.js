@@ -300,8 +300,8 @@ document.getElementById("registrationForm")
   .then(data => {
 
     document.getElementById("seatInfo").innerHTML = `
-      🔥 ব্যাচ-২২ → ${data.batch22}/10 সিট ভর্তি <br>
-      🔥 ব্যাচ-২৩ → ${data.batch23}/10 সিট ভর্তি
+      🔥 ব্যাচ-২৩ → ${data.batch23}/10 সিট ভর্তি <br>
+      🔥 ব্যাচ-২৪ → ${data.batch24}/10 সিট ভর্তি
     `;
 
   });
