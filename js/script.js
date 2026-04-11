@@ -269,45 +269,31 @@ backToTop.addEventListener("click", () => {
 
 // ========= Registration JS শুরু =========
 
-let submitted = false;
-
-document.querySelector("form").addEventListener("submit", () => {
-    submitted = true;
-    setTimeout(() => {
-        alert("রেজিস্ট্রেশন সফলভাবে সম্পন্ন হয়েছে!");
-        document.querySelector("form").reset();
-    }, 800);
-});
-
-// ========= Registration JS শেষ =========
-document
-.getElementById("registrationForm")
+document.getElementById("registrationForm")
 .addEventListener("submit", function(e){
 
   e.preventDefault();
 
   var formData = new FormData(this);
 
-  fetch("https://script.google.com/macros/s/AKfycbzxeTdEtRZ0LG0quUq2hNAigrCMIP37b-6oj_j0eS-eXgRk_JG4lf8XNEWKDzWwNZv2Mw/exec", {
+  fetch("YOUR_NEW_SCRIPT_URL", {
     method: "POST",
     body: formData
   })
   .then(res => res.json())
   .then(data => {
     if(data.status === "success"){
-      alert("রেজিস্ট্রেশন সফলভাবে সম্পন্ন হয়েছে!");
+      alert("রেজিস্ট্রেশন সফল হয়েছে ✅");
       this.reset();
     } else {
-      alert("সমস্যা হয়েছে, আবার চেষ্টা করুন");
+      alert(data.msg);
     }
   })
   .catch(err => {
     alert("সার্ভার সমস্যা!");
   });
 
-});
-
-// ========= TRAINER HERO JS শুরু =========
+});// ========= TRAINER HERO JS শুরু =========
 
 // Hover tilt effect (light)
 const trainerImage = document.querySelector(".trainer-image img");
