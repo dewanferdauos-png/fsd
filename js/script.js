@@ -5,12 +5,14 @@ const navMenu = document.getElementById("navMenu");
 hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
 });
+
 // Menu show class
 const style = document.createElement("style");
 style.innerHTML = `
 .nav-menu.active{
     display:block;
-};
+}
+`;
 document.head.appendChild(style);
 // ====== নেভমেনু JS শেষ ======
 
@@ -267,81 +269,71 @@ backToTop.addEventListener("click", () => {
 
 // ========= Registration JS শুরু =========
 
+document.getElementById("registrationForm")
+.addEventListener("submit", function(e){
+
+  e.preventDefault();
+
+  var formData = new FormData(this);
+
+  fetch("https://script.google.com/macros/s/AKfycbzzF3cqvhggijg7BY-mzwe3kij0ipiZ7hhq2o5HZFSzOlf3cJLEiW8RnL7Htj3HS_q6qQ/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.status === "success"){
+      alert("রেজিস্ট্রেশন সফল হয়েছে ✅");
+      document.getElementById("registrationForm").reset();
+    } else {
+      alert(data.msg);
+    }
+  })
+  .catch(err => {
+    alert("সার্ভার সমস্যা!");
+  });
+
+});
+    // ========= TRAINER HERO JS শুরু =========
+
+// Hover tilt effect (light)
+const trainerImage = document.querySelector(".trainer-image img");
+
+trainerImage.addEventListener("mousemove", e => {
+    const x = (window.innerWidth / 2 - e.pageX) / 30;
+    const y = (window.innerHeight / 2 - e.pageY) / 30;
+    trainerImage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+});
+
+trainerImage.addEventListener("mouseleave", () => {
+    trainerImage.style.transform = "rotateY(0deg) rotateX(0deg)";
+});
+
+// ========= TRAINER HERO JS শেষ =========
 document.addEventListener("DOMContentLoaded", function(){
-
-  const form = document.getElementById("registrationForm");
-
-  if(form){
-    form.addEventListener("submit", function(e){
-
-      e.preventDefault();
-
-      var formData = new FormData(this);
-
-      fetch("https://script.google.com/macros/s/AKfycbzzF3cqvhggijg7BY-mzwe3kij0ipiZ7hhq2o5HZFSzOlf3cJLEiW8RnL7Htj3HS_q6qQ/exec", {
-        method: "POST",
-        body: formData
-      })
-      .then(res => res.json())
-      .then(data => {
-        if(data.status === "success"){
-          alert("রেজিস্ট্রেশন সফল হয়েছে ✅");
-          fbq('track', 'Lead');
-          form.reset();
-        } else {
-          alert(data.msg);
-        }
-      })
-      .catch(err => {
-        alert("সার্ভার সমস্যা!");
-      });
-
-    });
-  }
-
-  // ========= TRAINER IMAGE EFFECT =========
-
-  const trainerImage = document.querySelector(".trainer-image img");
-
-  if(trainerImage){
-    trainerImage.addEventListener("mousemove", e => {
-      const x = (window.innerWidth / 2 - e.pageX) / 30;
-      const y = (window.innerHeight / 2 - e.pageY) / 30;
-      trainerImage.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-    });
-
-    trainerImage.addEventListener("mouseleave", () => {
-      trainerImage.style.transform = "rotateY(0deg) rotateX(0deg)";
-    });
-  }
-
-  // ========= GALLERY FILTER =========
 
   const buttons = document.querySelectorAll(".filter-buttons button");
   const images = document.querySelectorAll(".gallery-item");
 
-  if(buttons.length && images.length){
-    buttons.forEach(btn => {
-      btn.addEventListener("click", function(){
+  buttons.forEach(btn => {
+    btn.addEventListener("click", function(){
 
-        buttons.forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
+      buttons.forEach(b => b.classList.remove("active"));
+      this.classList.add("active");
 
-        const filter = this.dataset.filter;
+      const filter = this.dataset.filter;
 
-        images.forEach(img => {
-          if(filter === "all" || img.classList.contains(filter)){
-            img.style.display = "block";
-          }else{
-            img.style.display = "none";
-          }
-        });
-
+      images.forEach(img => {
+        if(filter === "all" || img.classList.contains(filter)){
+          img.style.display = "block";
+        }else{
+          img.style.display = "none";
+        }
       });
-    });
-  }
 
-});
+    });
+  });
+
   // Lightbox
   const lightbox = document.querySelector(".lightbox");
   const lightboxImg = document.querySelector(".lightbox-img");
@@ -357,7 +349,11 @@ document.addEventListener("DOMContentLoaded", function(){
   closeBtn.addEventListener("click", ()=>{
     lightbox.style.display = "none";
   });
+
+});
 /* ===== গ্যালারির JS শুরু ===== */
+
+document.addEventListener("DOMContentLoaded", function(){
 
   const imgs = document.querySelectorAll(".g-img");
   const modal = document.getElementById("modal");
@@ -414,6 +410,8 @@ document.addEventListener("DOMContentLoaded", function(){
   close.addEventListener("click", ()=>{
     modal.style.display="none";
   });
+
+});
 
 /* ===== গ্যালারির JS শেষ ===== */
 // ===== ব্যাচ ১, ব্যাচ ২ এবং সকল ছবি filter JS শুরু =====
