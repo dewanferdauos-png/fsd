@@ -284,7 +284,7 @@ document.getElementById("registrationForm")
   .then(data => {
     if(data.status === "success"){
       alert("রেজিস্ট্রেশন সফল হয়েছে ✅");
-      this.reset();
+      document.getElementById("registrationForm").reset();
     } else {
       alert(data.msg);
     }
@@ -292,14 +292,8 @@ document.getElementById("registrationForm")
   .catch(err => {
     alert("সার্ভার সমস্যা!");
   });
-    
-  .catch(() => {
-    console.log("Seat load error");
-  });
 
-}
-
-loadSeats();
+});
     // ========= TRAINER HERO JS শুরু =========
 
 // Hover tilt effect (light)
