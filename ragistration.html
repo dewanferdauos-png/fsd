@@ -87,39 +87,44 @@
     </header>
     
 <!-- ========= Registration Section HTML শুরু ========= -->
-    
 <section class="reg-section">
     <div class="reg-bg"></div>
- <!-- Google Form Connected Form -->
-<form id="registrationForm">
 
-  <input type="text" name="name" placeholder="আপনার নাম" required>
-  <input type="text" name="address" placeholder="ঠিকানা" required>
-  <input type="tel" name="mobile" placeholder="মোবাইল নাম্বার" required>
+    <div class="reg-container">
+        <h2 class="reg-title">কোর্স রেজিস্ট্রেশন</h2>
+        <p class="reg-subtitle">এখনই রেজিস্ট্রেশন করে আপনার জায়গা নিশ্চিত করুন</p>
 
-  <select name="batch" required>
-    <option value="">ব্যাচ নির্বাচন</option>
-    <option>ব্যাচ-২৩</option>
-    <option>ব্যাচ-২৪</option>
-  </select>
+        <!-- Google Form Connected Form -->
+       <form id="registrationForm">
 
-  <select name="course" required>
-    <option value="">কোর্স নির্বাচন</option>
-    <option>স্ক্রিন প্রিন্টিং</option>
-    <option>ব্লক প্রিন্টিং</option>
-    <option>স্ক্রিন প্রিন্ট ও ব্লক প্রিন্ট কম্বো কোর্স</option>
-  </select>
+        <input type="text" name="name" placeholder="আপনার নাম" required>
+        <input type="text" name="address" placeholder="ঠিকানা" required>
+        <input type="tel" name="mobile" placeholder="মোবাইল নাম্বার" required>
 
-  <button type="submit">রেজিস্ট্রেশন করুন</button>
-</form>   
+        <select name="batchSelect" required>
+            <option value="">ব্যাচ নির্বাচন</option>
+            <option>ব্যাচ-২০</option>
+            <option>ব্যাচ-২১</option>
+        </select>
+
+        <select name="batchNo" required>
+            <option value="">কোর্স নির্বাচন</option>
+            <option>স্ক্রিন প্রিন্টিং</option>
+            <option>ব্লক প্রিন্টিং</option>
+            <option>ডিজিটাল প্রিন্টিং</option>
+        </select>
+
+        <button type="submit">রেজিস্ট্রেশন করুন</button>
+
+        </form>
+         <div class="note-error">
+        <span class="textnote">(সমস্যা হয়েছে, আবার চেষ্টা করুন। এই লেখা আসলে বিভ্রান্ত হবেন না।) তথ্যদিয়ে রেজিস্ট্রেশন করলেই হয়ে গেছে। </span>
+        </div>
+        <iframe name="hidden_iframe" style="display:none;"></iframe>
+    </div>
 </section>
-    
- <div class="reg-container">
-    <h2 class="reg-title">কোর্স রেজিস্ট্রেশন</h2>
-    <p class="reg-subtitle">এখনই রেজিস্ট্রেশন করে আপনার জায়গা নিশ্চিত করুন</p>
-</div>
-<!-- ========= Registration Section HTML শেষ ========= -->
-    
+
+<!-- ========= Registration Section HTML শেষ ========= -->    
 <!-- ========= CONTACT CTA SECTION HTML শুরু ========= -->
 
 <section class="contact-cta-section" id="contact">
