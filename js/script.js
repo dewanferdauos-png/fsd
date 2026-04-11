@@ -418,8 +418,6 @@ document.addEventListener("DOMContentLoaded", function(){
     modal.style.display="none";
   });
 
-});
-
 /* ===== গ্যালারির JS শেষ ===== */
 // ===== ব্যাচ ১, ব্যাচ ২ এবং সকল ছবি filter JS শুরু =====
 
