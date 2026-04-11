@@ -276,7 +276,7 @@ document.getElementById("registrationForm")
 
   var formData = new FormData(this);
 
-  fetch("YOUR_NEW_SCRIPT_URL", {
+  fetch("https://script.google.com/macros/s/AKfycbzzF3cqvhggijg7BY-mzwe3kij0ipiZ7hhq2o5HZFSzOlf3cJLEiW8RnL7Htj3HS_q6qQ/exec", {
     method: "POST",
     body: formData
   })
