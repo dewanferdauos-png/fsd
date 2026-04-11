@@ -292,10 +292,10 @@ document.getElementById("registrationForm")
   .catch(err => {
     alert("সার্ভার সমস্যা!");
   });
-
+ // ========= Seat counter শুরু =========
     function loadSeats(){
 
-  fetch("https://script.google.com/macros/s/AKfycbzzF3cqvhggijg7BY-mzwe3kij0ipiZ7hhq2o5HZFSzOlf3cJLEiW8RnL7Htj3HS_q6qQ/exec")
+  fetch("https://script.google.com/macros/s/AKfycbzzF3cqvhggijg7BY-mzwe3kij0ipiz7hhq2o5HZFSz01f3cJLEiW8RnL7Ht3jHS_q6q0/exec")
   .then(res => res.json())
   .then(data => {
 
@@ -303,14 +303,11 @@ document.getElementById("registrationForm")
       🔥 ব্যাচ-২৩ → ${data.batch23}/10 সিট ভর্তি <br>
       🔥 ব্যাচ-২৪ → ${data.batch24}/10 সিট ভর্তি
     `;
-
   });
-
 }
-
 loadSeats();
 
-});// ========= TRAINER HERO JS শুরু =========
+    // ========= TRAINER HERO JS শুরু =========
 
 // Hover tilt effect (light)
 const trainerImage = document.querySelector(".trainer-image img");
