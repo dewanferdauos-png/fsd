@@ -293,6 +293,23 @@ document.getElementById("registrationForm")
     alert("সার্ভার সমস্যা!");
   });
 
+    function loadSeats(){
+
+  fetch("YOUR_SCRIPT_URL")
+  .then(res => res.json())
+  .then(data => {
+
+    document.getElementById("seatInfo").innerHTML = `
+      🔥 ব্যাচ-২২ → ${data.batch22}/10 সিট ভর্তি <br>
+      🔥 ব্যাচ-২৩ → ${data.batch23}/10 সিট ভর্তি
+    `;
+
+  });
+
+}
+
+loadSeats();
+
 });// ========= TRAINER HERO JS শুরু =========
 
 // Hover tilt effect (light)
