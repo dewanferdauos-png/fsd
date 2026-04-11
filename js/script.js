@@ -364,8 +364,6 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 /* ===== গ্যালারির JS শুরু ===== */
 
-document.addEventListener("DOMContentLoaded", function(){
-
   const imgs = document.querySelectorAll(".g-img");
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
