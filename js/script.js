@@ -295,7 +295,7 @@ document.getElementById("registrationForm")
 
     function loadSeats(){
 
-  fetch("YOUR_SCRIPT_URL")
+  fetch("https://script.google.com/macros/s/AKfycbzzF3cqvhggijg7BY-mzwe3kij0ipiZ7hhq2o5HZFSzOlf3cJLEiW8RnL7Htj3HS_q6qQ/exec")
   .then(res => res.json())
   .then(data => {
 
