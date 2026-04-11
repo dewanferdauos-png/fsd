@@ -284,6 +284,7 @@ document.getElementById("registrationForm")
   .then(data => {
     if(data.status === "success"){
       alert("রেজিস্ট্রেশন সফল হয়েছে ✅");
+        fbq('track', 'Lead');
       document.getElementById("registrationForm").reset();
     } else {
       alert(data.msg);
