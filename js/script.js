@@ -360,8 +360,6 @@ document.addEventListener("DOMContentLoaded", function(){
   closeBtn.addEventListener("click", ()=>{
     lightbox.style.display = "none";
   });
-
-});
 /* ===== গ্যালারির JS শুরু ===== */
 
   const imgs = document.querySelectorAll(".g-img");
