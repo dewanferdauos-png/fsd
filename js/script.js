@@ -11,8 +11,7 @@ const style = document.createElement("style");
 style.innerHTML = `
 .nav-menu.active{
     display:block;
-}
-`;
+};
 document.head.appendChild(style);
 // ====== নেভমেনু JS শেষ ======
 
