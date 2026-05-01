@@ -2227,11 +2227,22 @@ p{
   font-size: 18px;
 }
 
-
 #name::placeholder {
+  color: black;
+  opacity: 1; /* fixes Firefox */
+}
+
+#name::-webkit-input-placeholder {
   color: black;
 }
 
+#name:-ms-input-placeholder {
+  color: black;
+}
+
+#name::-ms-input-placeholder {
+  color: black;
+}
 
 
 
