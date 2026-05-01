@@ -2228,6 +2228,11 @@ p{
 }
 
 
+#name::placeholder {
+  color: black;
+}
+
+
 
 
 
