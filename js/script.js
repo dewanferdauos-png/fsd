@@ -91,7 +91,7 @@ if(noticeTrack){
 
 
 //========== FLOATING COUNTDOWN TIMER JS ==========//
-const floatingDate = new Date("2026-05-6 09:00:00").getTime();
+const floatingDate = new Date("2026-06-1 09:00:00").getTime();
 
 setInterval(() => {
     const now = new Date().getTime();
@@ -102,7 +102,7 @@ setInterval(() => {
 
     if(diff <= 0){
         floatingEl.innerHTML =
-            "<h3 style='color:white'>🎉পরবর্তি অফলাইন ব্যাচ শুরু হবে ঈদের ৩ দিন পর থেকে! <br> আমাদের অনলাইন কোর্স এর রেজিঃ চলছে।</h3>";
+            "<h3 style='color:white'>🎉পরবর্তি অফলাইন ব্যাচ শুরু হবে ঈদের ৩ দিন পর ১লা জুন রোজ সোমবার থেকে! <br> আমাদের অনলাইন কোর্স এর রেজিঃ চলছে।</h3>";
         return;
     }
 
