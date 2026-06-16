@@ -91,7 +91,7 @@ if(noticeTrack){
 
 
 //========== FLOATING COUNTDOWN TIMER JS ==========//
-const floatingDate = new Date("2026-06-17 09:00:00").getTime();
+const floatingDate = new Date("2026-07-8 09:00:00").getTime();
 
 setInterval(() => {
     const now = new Date().getTime();
@@ -102,7 +102,7 @@ setInterval(() => {
 
     if(diff <= 0){
         floatingEl.innerHTML =
-            "<h3 style='color:white'>🎉পরবর্তি অফলাইন ব্যাচ শুরু হবে ১৭ ই জুন রোজ বুধবার সকাল ০৯.০০ টা থেকে!</h3>";
+            "<h3 style='color:white'>🎉পরবর্তি অফলাইন ব্যাচ শুরু হবে ৮ ই জুলাই রোজ বুধবার সকাল ০৯.০০ টা থেকে!</h3>";
         return;
     }
 
